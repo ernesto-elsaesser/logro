@@ -5,45 +5,26 @@
     <title>Memoticon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-      * { font-size: 12px; }
-      #status p {
-        width: 33%;
-        text-align: center;
-      }
+      * { font-size: 12px; margin: 5px; }
     </style>
   </head>
   <body>
-    <div id="status">
-      <p id="hp"></p><p id="sp"></p><p id="mp"></p>
-    </div>
-    <div id="output"></div>
+    <div id="output">WELCOME TO THE VALLEY OF MISTS. MAY YOU UNCOVER THE SECRETS IT HOLDS. TO LOOK AROUND, TYPE 👁. TO USE YOUR SWORD, TYPE 🗡. TO REST AND RECOVER YOUR STRENGTH, TYPE 💤. TO START YOUR JOURNEY, TYPE 👣.</div>
+
     <input type="search" id="input" onsearch="process()" />
 
     <script src="game.js"></script>
     <script>
-      const hp = document.getElementById('hp')
-      const sp = document.getElementById('sp')
-      const mp = document.getElementById('mp')
-
       const input = document.getElementById('input')
       const output = document.getElementById('output')
 
-      game = Game()
+      game = new Game()
 
       function process() {
-        game.exec(input.value)
-        update()
-      }
-
-      function update() {
-        hp.innerText = "🔴".repeat(game.hp)
-        sp.innerText = "🟡".repeat(game.sp)
-        mp.innerText = "🔵".repeat(game.mp)
-        output.innerHTML += game.msg + "<br /><br />"
+        const msg = game.exec(input.value)
         input.value = ""
+        output.innerHTML += msg + "<br /><br />"
       }
-
-      update()
     </script>
   </body>
 </html>
