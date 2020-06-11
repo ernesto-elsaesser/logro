@@ -13,24 +13,24 @@ class Game {
 
   exec(cmd) {
     if (cmd == "👣") {
-      return "YOU WALK"
+      return "YOU WALK ..."
     }
-    
+
     if (cmd == "👁") {
       return "YOU SEE " + this.loc
     }
 
     if (cmd == "🗡") {
       self.hp -= 1
-      return "YOU CUT YOURSELF"
+      return "YOU CUT YOURSELF."
     }
 
     if (cmd == "💤") {
       this.rest()
-      return "YOU SLEEP ... WHEN YOU WAKE UP, YOU FEEL REPLENISHED"
+      return "YOU SLEEP ... WHEN YOU WAKE UP, YOU FEEL REPLENISHED."
     }
 
-    return "NOTHING HAPPENS"
+    return "NOTHING HAPPENS."
   }
 
   rest() {
