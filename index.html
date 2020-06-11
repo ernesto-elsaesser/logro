@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Memoticon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * { font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <div id="output"></div>
+    <input type="search" id="input" onsearch="parse(event)" style="width: 100%" />
+
+    <script src="game.js"></script>
+    <script>
+      const input = document.getElementById('input');
+      const output = document.getElementById('output');
+
+      input.pattern = /([\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2694-\u2697]|\uD83E[\uDD10-\uDD5D])/;
+
+      function parse(event) {
+        output.innerHTML += "CHECK<br />"
+      }
+    </script>
+  </body>
+</html>
