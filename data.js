@@ -13,6 +13,6 @@ cast = {
 		return "YOU HIT " + t.name
 	},
 	idle(c, t) {
-		return c.name " DOES NOTHING"
+		return c.name + " DOES NOTHING"
 	}
 }
