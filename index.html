@@ -28,14 +28,15 @@
       const game = new Game()
 
       function process() {
-        const msg = game.exec(input.value)
+	  	const cmd = input.value.toUpperCase()
         input.value = ""
-        print(msg)
+        const msgs = game.exec(cmd)
+        print(msgs)
       }
 
-	  function print(msg) {
-		htmlMsg = msg.replace('\n', "<br />")
-        output.innerHTML += htmlMsg + "<br /><br />"
+	  function print(msgs) {
+		lines = msgs.map(m => m + ".<br />").join()
+        output.innerHTML += lines + "<br />"
 	  }
 
 	  const intro = game.intro()

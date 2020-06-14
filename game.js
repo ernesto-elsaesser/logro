@@ -7,6 +7,7 @@ class Game {
 	}
 
 	generateSpellbook() {
+		// TODO: generate random mapping with words.js
 		this.spellbook = {
 			"hit": "hit"
 		}
