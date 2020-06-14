@@ -1,42 +1,51 @@
-
 class Game {
 
   constructor() {
-    this.hp_max = 3
-    this.sp_max = 2
-    this.mp_max = 1
+    this.level = 1
 
-    this.loc = "A GREEN VALLEY, FLANKED BY MOUNTAINS. THROUGH IT FLOWS A MUDDY STREAM."
+    this.health = 10
+    this.wisdom = 10
+	this.power = 10
 
-    this.rest()
+    this.spellBook = new SpellBook()
   }
 
   exec(cmd) {
-    if (cmd == "👣") {
-      return "YOU WALK ..."
-    }
+  	if (cmd == "START") {
+		return nextEncounter()
+	}
 
-    if (cmd == "👁") {
-      return "YOU SEE " + this.loc
-    }
 
-    if (cmd == "🗡") {
-      self.hp -= 1
-      return "YOU CUT YOURSELF."
-    }
-
-    if (cmd == "💤") {
-      this.rest()
-      return "YOU SLEEP ... WHEN YOU WAKE UP, YOU FEEL REPLENISHED."
-    }
 
     return "NOTHING HAPPENS."
   }
 
-  rest() {
-    this.hp = this.hp_max
-    this.sp = this.sp_max
-    this.mp = this.mp_max
+  nextEncounter() {
+    this.hp = this.health * 5
+  	this.creature = new Creature()
+	return "AS YOU PROCEED, YOU ENCOUNTER " + this.creature.name + "! WHAT DO YOU DO?"
+  }
+
+  fight(cmd) {
+
+	// train the skill you used
+  }
+
+
+  learn(cmd) {
+
+  }
+
+  levelUp() {
+    this.level += 1
+    return "YOU REACHED LEVEL " + this.level + ". WHICH STAT DO YOU WANT TO INCREASE?"
+  }
+
+  tellStats() {
+  	return "HEALTH " + this.health ", WISDOM
+  }
+
+  restore() {
   }
 
 }

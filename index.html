@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>MEMOTICON</title>
+    <title>MEMONICON</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       body {
@@ -17,10 +17,14 @@
     </style>
   </head>
   <body>
-    <div id="output">WELCOME TO THE VALLEY OF MISTS. MAY YOU UNCOVER THE SECRETS IT HOLDS. TO LOOK AROUND, TYPE 👁. TO USE YOUR SWORD, TYPE 🗡. TO REST AND RECOVER YOUR STRENGTH, TYPE 💤. TO START YOUR JOURNEY, TYPE 👣.</div>
+    <div id="output">
+		THE MAGIC IN OUR WORLD HAS GROWN WEAK. THERE USED TO BE WORDS, POWERFUL WORDS - WORDS THAT WOULD FORGE EMPIRES AND DEVASTATE LANDSCAPES. BUT ALMOST ALL OF THEM HAVE BEEN LOST. THE ONES WE REMEMBER ARE SIMPLE AND XXX. TODO: LIST? 
+		YOUR SEARCH FOR ... HAS FINALLY BROUGHT YOU TO THE VALLEY OF MISTS, A PLACE THAT IS FULL OF SECRETS AND RELICTS OF ANCIENT TIMES ...
+	</div>
 
     <input type="search" id="input" onsearch="process()" />
 
+    <script src="words.js"></script>
     <script src="game.js"></script>
     <script>
       const input = document.getElementById('input')
@@ -29,10 +33,13 @@
       game = new Game()
 
       function process() {
-        const msg = game.exec(input.value)
+        var msg = game.exec(input.value)
+		msg = msg.replace('\n', "<br />")
         input.value = ""
         output.innerHTML += "<br /><br />" + msg
       }
+
+	  process("START")
     </script>
   </body>
 </html>
