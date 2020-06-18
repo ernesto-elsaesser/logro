@@ -18,7 +18,7 @@ class Game {
 		msgs.push("THE MAGIC IN OUR WORLD HAS GROWN WEAK. THERE USED TO BE WORDS, POWERFUL WORDS - WORDS THAT WOULD FORGE EMPIRES AND DEVASTATE LANDSCAPES. BUT ALMOST ALL OF THEM HAVE BEEN LOST. THE ONES WE REMEMBER ARE SIMPLE AND XXX. TODO: LIST? YOUR SEARCH FOR ... HAS FINALLY BROUGHT YOU TO THE VALLEY OF MISTS, A PLACE THAT IS FULL OF SECRETS AND RELICTS OF ANCIENT TIMES ...")
 		msgs.push("")
 		msgs.push("AS YOU ENTER THE VALLEY, YOU ENCOUNTER " + this.creature.undefName + "!")
-		msgs.push("CHOOSE YOUR WORDS")
+		msgs.push("CHOOSE YOUR WORDS.")
 		return msgs
 	}
 
@@ -33,7 +33,7 @@ class Game {
 			const msg = cast[playerSpellId](this.player, this.creature)
 			msgs.push(msg)
 		} else {
-			msgs.push("NOTHING HAPPENS")
+			msgs.push("NOTHING HAPPENS.")
 		}
 
 		if (this.creature.isAlive()) {
@@ -43,17 +43,17 @@ class Game {
 			msgs.push(msg)
 
 			if (this.player.isAlive()) {
-				msgs.push("CHOOSE YOUR NEXT WORDS")
+				msgs.push("CHOOSE YOUR NEXT WORDS.")
 			} else {
-				msgs.push("YOU DIE")
+				msgs.push("YOU DIE.")
 				this.spellBook = {}
 			}
 
 		} else {
 
-			msgs.push(this.creature.name + " DIES")
+			msgs.push(this.creature.name + " DIES.")
 			if (this.lostHealth > 0) {
-				msgs.push("YOU REST UNTIL YOUR WOUNDS HAVE FULLY HEALED")
+				msgs.push("YOU REST UNTIL YOUR WOUNDS HAVE FULLY HEALED.")
 				this.lostHealth = 0
 			}
 
@@ -61,7 +61,7 @@ class Game {
 			this.creature = new Creature(creatureId)
 			msgs.push("")
 			msgs.push("AS YOU PROCEED, YOU ENCOUNTER " + this.creature.undefName + "!")
-			msgs.push("CHOOSE YOUR WORDS")
+			msgs.push("CHOOSE YOUR WORDS.")
 		}
 		
 
